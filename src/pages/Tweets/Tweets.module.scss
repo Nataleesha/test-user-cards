@@ -36,8 +36,8 @@
   right: 40px;
   bottom: 40px;
   text-transform: uppercase;
-  background: $secondary-color;
-  color: $main;
+  background: $main;
+  color: $secondary-color;
   border-color: transparent;
   border-radius: 8px;
   padding: 5px;
@@ -50,10 +50,10 @@
 
 .back {
   padding: 8px 22px;
-  background: $secondary-color;
+  background: $main;
+  color: $secondary-color;
   text-transform: uppercase;
   border-radius: 8px;
-  color: $main;
 }
 
 @media only screen and (max-width: 480px) {
