@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import css from "./Tweet.module.scss";
 import logo from "images/logo.png";
 import picture from "images/picture.png";
@@ -7,15 +7,17 @@ import axios from "axios";
 axios.defaults.baseURL = "https://64542324e9ac46cedf3840c8.mockapi.io";
 
 const Tweet = ({ user }) => {
+  const [followed, setFollowed] = useState(user.followed);
   const followUser = async (id) => {
     try {
-      await axios.put(`/users/${id}`, !user.followed);
+      await axios.put(`/users/${id}`, { followed: !followed });
+      setFollowed(!followed);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const active = user.followed ? css.followed : "";
+  const active = followed ? css.followed : "";
 
   return (
     <div className={css.card}>
@@ -33,7 +35,7 @@ const Tweet = ({ user }) => {
           type="button"
           onClick={() => followUser(user.id)}
         >
-          {user.followed ? <span>following</span> : <span>follow</span>}
+          {followed ? <span>following</span> : <span>follow</span>}
         </button>
       </div>
     </div>
