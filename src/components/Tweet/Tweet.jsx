@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import css from "./Tweet.module.scss";
 import logo from "images/logo.png";
 import picture from "images/picture.png";
