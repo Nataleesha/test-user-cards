@@ -1,0 +1,91 @@
+@import "/src/utils/variables.scss";
+
+.card {
+  position: relative;
+  width: 380px;
+  height: 460px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  background: $card-background;
+  font-family: $font;
+  color: $secondary-color;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  box-shadow: $card-box-shadow;
+  text-align: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.picture {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+}
+
+.avatar {
+  position: absolute;
+  border-radius: 50%;
+  top: 178px;
+  left: 150px;
+  width: 80px;
+  height: 80px;
+  background-color: $secondary-color;
+  box-shadow: $avatar-box-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    border-radius: 50%;
+    width: 63px;
+    height: 63px;
+  }
+}
+
+.line {
+  position: absolute;
+  top: 214px;
+  width: 380px;
+  height: 8px;
+  background-color: $secondary-color;
+  box-shadow: $line-box-shadow;
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 36px;
+  text-align: center;
+  width: 100%;
+
+  p {
+    margin-top: 16px;
+  }
+}
+
+.btn {
+  width: 196px;
+  height: 50px;
+  margin-top: 25px;
+  border: transparent;
+  border-radius: 10px;
+  background: $secondary-color;
+  box-shadow: $btn-box-shadow;
+  text-transform: uppercase;
+  font-family: $font;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: $btn-text-color;
+}
+
+.followed {
+  background: $btn-active;
+}

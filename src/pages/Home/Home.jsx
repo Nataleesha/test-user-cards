@@ -1,10 +1,14 @@
 import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Home() {
   return (
-    <div>
+    <HelmetProvider>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <h1>HOME PAGE</h1>
-    </div>
+    </HelmetProvider>
   );
 }
 

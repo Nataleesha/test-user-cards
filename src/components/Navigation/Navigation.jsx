@@ -1,14 +1,24 @@
 import React, { Suspense } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Loader from "components/Loader/Loader";
+import css from "./Navigation.module.scss";
 
 const Navigation = () => {
   return (
     <div>
-      <nav>
-        <Link to="/tweets">Tweets</Link>
-      </nav>
-      <main>
+      <header className={css.header}>
+        <nav>
+          <ul className={css.list}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/tweets">Tweets</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main className={css.main}>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
