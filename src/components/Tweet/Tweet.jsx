@@ -8,10 +8,16 @@ axios.defaults.baseURL = "https://64542324e9ac46cedf3840c8.mockapi.io";
 
 const Tweet = ({ user }) => {
   const [followed, setFollowed] = useState(user.followed);
+  const [followers, setFollowers] = useState(user.followers);
   const followUser = async (id) => {
     try {
-      await axios.put(`/users/${id}`, { followed: !followed });
+      await axios.put(`/users/${id}`, {
+        followed: false
+          ? { followed: true, followers: followers + 1 }
+          : { followed: false, followers: followers - 1 },
+      });
       setFollowed(!followed);
+      setFollowers(followed ? followers - 1 : followers + 1);
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +35,7 @@ const Tweet = ({ user }) => {
       </div>
       <div className={css.info}>
         <p>{user.tweets} tweets</p>
-        <p>{user.followers} followers</p>
+        <p>{followers} followers</p>
         <button
           className={`${css.btn} ${active}`}
           type="button"
