@@ -5,10 +5,10 @@ import css from "./Navigation.module.scss";
 
 const Navigation = () => {
   return (
-    <div>
+    <div className={css.container}>
       <header className={css.header}>
         <nav>
-          <ul className={css.list}>
+          <ul className={css.links}>
             <li>
               <Link to="/">Home</Link>
             </li>

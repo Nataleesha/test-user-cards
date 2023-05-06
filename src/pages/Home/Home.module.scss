@@ -1,0 +1,29 @@
+@import "/src/utils/variables.scss";
+
+.title {
+  display: inline-block;
+  font-size: 66px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $btn-text-color;
+  margin-top: 200px;
+  background: linear-gradient(
+      to right,
+      rgba(100, 200, 200, 1),
+      rgba(100, 200, 200, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size: 100% 5px, 0 5px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+
+  &:hover {
+    background-size: 0 5px, 100% 5px;
+  }
+}

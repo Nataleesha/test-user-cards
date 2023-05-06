@@ -35,7 +35,7 @@ const Tweet = ({ user }) => {
       </div>
       <div className={css.info}>
         <p>{user.tweets} tweets</p>
-        <p>{followers} followers</p>
+        <p>{followers.toLocaleString("en-GB")} followers</p>
         <button
           className={`${css.btn} ${active}`}
           type="button"

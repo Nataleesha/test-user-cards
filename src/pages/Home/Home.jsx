@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import css from "./Home.module.scss";
 
 function Home() {
   return (
@@ -7,7 +8,7 @@ function Home() {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <h1>HOME PAGE</h1>
+      <h1 className={css.title}>Home Page </h1>
     </HelmetProvider>
   );
 }

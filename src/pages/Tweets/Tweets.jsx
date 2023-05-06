@@ -10,6 +10,7 @@ axios.defaults.baseURL = "https://64542324e9ac46cedf3840c8.mockapi.io";
 
 const Tweets = () => {
   const [tweets, setTweets] = useState([]);
+  const [slice, setSlice] = useState(3);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -24,24 +25,51 @@ const Tweets = () => {
     getUsers();
   }, []);
 
+  const goUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <HelmetProvider>
       <Helmet>
         <title>Tweets</title>
       </Helmet>
-      <Link to="/">Go Back</Link>
       {tweets.length === 0 ? (
         <Loader />
       ) : (
-        <ul>
-          {tweets.map((tweet) => {
-            return (
-              <li key={tweet.id} className={css.tweet}>
-                <Tweet user={tweet} />
-              </li>
-            );
-          })}
-        </ul>
+        <div className={css["tweets-container"]}>
+          <div className={css["back-container"]}>
+            <Link to="/" className={css.back}>
+              Go Back
+            </Link>
+          </div>
+          <ul>
+            {tweets.slice(0, slice).map((tweet) => {
+              return (
+                <li key={tweet.id} className={css.tweet}>
+                  <Tweet user={tweet} />
+                </li>
+              );
+            })}
+          </ul>
+          {slice < tweets.length && (
+            <button
+              className={css["btn-load-more"]}
+              type="button"
+              onClick={() => {
+                setSlice(slice + 3);
+              }}
+            >
+              load more
+            </button>
+          )}
+          <button className={css.up} onClick={goUp}>
+            go up
+          </button>
+        </div>
       )}
     </HelmetProvider>
   );

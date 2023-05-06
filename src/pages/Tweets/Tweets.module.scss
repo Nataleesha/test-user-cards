@@ -1,4 +1,63 @@
+@import "/src/utils/variables.scss";
+
+.tweets-container {
+  text-align: center;
+}
+
 .tweet {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-load-more {
+  width: 196px;
+  height: 50px;
+  margin-bottom: 30px;
+  border: transparent;
+  border-radius: 10px;
+  background: #a981d4;
+  text-transform: uppercase;
+  font-family: $font;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: $secondary-color;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transition: 0.2s all;
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+}
+
+.up {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  text-transform: uppercase;
+  background: $secondary-color;
+  color: $main;
+  border-color: transparent;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.back-container {
+  width: 400px;
+  text-align: left;
+}
+
+.back {
+  padding: 8px 22px;
+  background: $secondary-color;
+  text-transform: uppercase;
+  border-radius: 8px;
+  color: $main;
+}
+
+@media only screen and (max-width: 480px) {
+  .back-container {
+    display: none;
+  }
 }
