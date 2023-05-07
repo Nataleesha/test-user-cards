@@ -2,6 +2,7 @@
 
 .tweets-container {
   text-align: center;
+  width: 380px;
 }
 
 .tweet {
@@ -44,8 +45,9 @@
 }
 
 .back-container {
-  width: 400px;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .back {
@@ -60,4 +62,20 @@
   .back-container {
     display: none;
   }
+}
+
+.dropdown {
+  width: 220px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-color: $main;
+}
+
+.control {
+  border-radius: 8px;
+  border-color: $main;
+}
+
+.menu {
+  border-radius: 8px;
 }

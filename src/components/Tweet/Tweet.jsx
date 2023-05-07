@@ -11,11 +11,12 @@ const Tweet = ({ user }) => {
   const [followers, setFollowers] = useState(user.followers);
   const followUser = async (id) => {
     try {
-      await axios.put(`/users/${id}`, {
-        followed: false
-          ? { followed: true, followers: followers + 1 }
-          : { followed: false, followers: followers - 1 },
-      });
+      await axios.put(
+        `/users/${id}`,
+        followed
+          ? { followed: false, followers: followers - 1 }
+          : { followed: true, followers: followers + 1 }
+      );
       setFollowed(!followed);
       setFollowers(followed ? followers - 1 : followers + 1);
     } catch (error) {

@@ -4,13 +4,19 @@ import Tweet from "components/Tweet/Tweet";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loader from "components/Loader/Loader";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import css from "./Tweets.module.scss";
 
 axios.defaults.baseURL = "https://64542324e9ac46cedf3840c8.mockapi.io";
 
+const options = ["all", "follow", "followings"];
+const defaultOption = options[0];
+
 const Tweets = () => {
   const [tweets, setTweets] = useState([]);
   const [slice, setSlice] = useState(3);
+  const [filter, setFilter] = useState(null);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -23,13 +29,30 @@ const Tweets = () => {
     };
 
     getUsers();
-  }, []);
+  }, [filter]);
 
   const goUp = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const getFilter = (value) => {
+    if (value === "follow") {
+      setFilter(false);
+    } else if (value === "followings") {
+      setFilter(true);
+    } else {
+      setFilter(null);
+    }
+  };
+
+  const filterTweets = () => {
+    if (filter === null) {
+      return tweets;
+    }
+    return tweets.filter((tweet) => tweet.followed === filter);
   };
 
   return (
@@ -45,17 +68,30 @@ const Tweets = () => {
             <Link to="/" className={css.back}>
               Go Back
             </Link>
+
+            <Dropdown
+              className={css.dropdown}
+              controlClassName={css.control}
+              menuClassName={css.menu}
+              optionlClassName={css.option}
+              options={options}
+              onChange={(e) => getFilter(e.value)}
+              value={defaultOption}
+              placeholder="Filter"
+            />
           </div>
           <ul>
-            {tweets.slice(0, slice).map((tweet) => {
-              return (
-                <li key={tweet.id} className={css.tweet}>
-                  <Tweet user={tweet} />
-                </li>
-              );
-            })}
+            {filterTweets()
+              .slice(0, slice)
+              .map((tweet) => {
+                return (
+                  <li key={tweet.id} className={css.tweet}>
+                    <Tweet user={tweet} />
+                  </li>
+                );
+              })}
           </ul>
-          {slice < tweets.length && (
+          {slice < filterTweets().length && (
             <button
               className={css["btn-load-more"]}
               type="button"
