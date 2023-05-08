@@ -80,7 +80,7 @@ const Tweets = () => {
               placeholder="Filter"
             />
           </div>
-          <ul>
+          <ul className={css.list}>
             {filterTweets()
               .slice(0, slice)
               .map((tweet) => {

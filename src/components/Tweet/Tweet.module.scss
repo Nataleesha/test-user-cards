@@ -4,7 +4,6 @@
   position: relative;
   width: 380px;
   height: 460px;
-  margin-bottom: 30px;
   border-radius: 20px;
   background: $card-background;
   font-family: $font;
@@ -87,6 +86,12 @@
   font-size: 18px;
   line-height: 22px;
   color: $btn-text-color;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #ae7be3;
+    transition: all 0.3s;
+  }
 
   &:after {
     content: "";
