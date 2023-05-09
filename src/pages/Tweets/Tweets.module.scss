@@ -88,8 +88,15 @@
 .control {
   border-radius: 8px;
   border-color: $main;
+  cursor: pointer;
 }
 
 .menu {
   border-radius: 8px;
+}
+
+.notif {
+  margin-top: 20px;
+  font-size: 24px;
+  color: $main;
 }

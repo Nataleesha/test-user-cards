@@ -52,8 +52,11 @@ const Tweets = () => {
     if (filter === null) {
       return tweets;
     }
-    return tweets.filter((tweet) => tweet.followed === filter);
+    const result = tweets.filter((tweet) => tweet.followed === filter);
+    return result;
   };
+
+  const filteredTweets = filterTweets();
 
   return (
     <HelmetProvider>
@@ -80,18 +83,20 @@ const Tweets = () => {
               placeholder="Filter"
             />
           </div>
-          <ul className={css.list}>
-            {filterTweets()
-              .slice(0, slice)
-              .map((tweet) => {
+          {filteredTweets.length === 0 ? (
+            <p className={css.notif}>No Results</p>
+          ) : (
+            <ul className={css.list}>
+              {filteredTweets.slice(0, slice).map((tweet) => {
                 return (
                   <li key={tweet.id} className={css.tweet}>
                     <Tweet user={tweet} />
                   </li>
                 );
               })}
-          </ul>
-          {slice < filterTweets().length && (
+            </ul>
+          )}
+          {slice < filteredTweets.length && (
             <button
               className={css["btn-load-more"]}
               type="button"
