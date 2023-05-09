@@ -5,7 +5,10 @@
   width: 380px;
   height: 460px;
   border-radius: 20px;
-  background: $card-background;
+  background-image: url("../../images/logo.png"),
+    url("../../images/picture.png"), $card-background;
+  background-repeat: no-repeat, no-repeat;
+  background-position: top 20px left 20px, top 28px center, center;
   font-family: $font;
   color: $secondary-color;
   font-weight: 500;
@@ -59,15 +62,6 @@
     width: 63px;
     height: 63px;
   }
-}
-
-.line {
-  position: absolute;
-  top: 214px;
-  width: 100%;
-  height: 8px;
-  background-color: $secondary-color;
-  box-shadow: $line-box-shadow;
 }
 
 .info {

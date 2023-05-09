@@ -28,9 +28,8 @@ const Tweet = ({ user }) => {
 
   return (
     <div className={css.card}>
-      <img className={css.logo} src={logo} alt="logo"></img>
-      <img className={css.picture} src={picture} alt="logo"></img>
-      {/* <div className={css.line}></div> */}
+      {/* <img className={css.logo} src={logo} alt="logo"></img> */}
+      {/* <img className={css.picture} src={picture} alt="logo"></img> */}
       <div className={css.avatar}>
         <img src={user.avatar} alt="avatar"></img>
       </div>
