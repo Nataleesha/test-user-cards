@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import css from "./Tweet.module.scss";
-import logo from "images/logo.png";
-import picture from "images/picture.png";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://64542324e9ac46cedf3840c8.mockapi.io";
