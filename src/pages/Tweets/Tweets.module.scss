@@ -7,9 +7,22 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  width: 1190px;
+  justify-content: left;
   gap: 25px;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1250px) {
+  .list {
+    width: 785px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .list {
+    width: 380px;
+  }
 }
 
 .btn-load-more {
